@@ -6,9 +6,10 @@
     <ul>
         {% for  msg in message_list %}
         <li>{{msg.created}}
-            <a href="{% url 'msg_read' msg.id %}">{{msg.subject}}{{ msg.user }}</a> </li> 
-            <a href="{% url 'msg_delete' msg.id %}">刪除</a>
+        <a href="{% url 'msg_read' msg.id %}">{{msg.subject}}{{ msg.user }}</a> </li> 
+        {% if user.is_authenticated %}
+                <a href="{% url 'msg_delete' msg.id %}">刪除</a>{% endif %}
         </li>
-            {% endfor %}
+        {% endfor %}
     </ul>
     {% endblock %}

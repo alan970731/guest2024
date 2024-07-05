@@ -8,7 +8,8 @@ class Message(models.Model):
     content = models.TextField('留言內容')
     created = models.DateTimeField('留言時間', auto_now_add=True)
 
-
+    def __str__(self):
+        return self.subject
 
 
 
